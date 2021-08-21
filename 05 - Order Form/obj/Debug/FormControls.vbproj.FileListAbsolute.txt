@@ -1,0 +1,12 @@
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W05T-FormControls\bin\Debug\L10-FormControls160223.exe.config
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W05T-FormControls\obj\Debug\L10-FormControls160223.exe
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W05T-FormControls\obj\Debug\L10-FormControls160223.xml
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W05T-FormControls\obj\Debug\L10-FormControls160223.pdb
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W05A-FormControls\bin\Debug\L10-FormControls160223.exe.config
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W05A-FormControls\obj\Debug\L10-FormControls160223.exe
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W05A-FormControls\obj\Debug\L10-FormControls160223.xml
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W05A-FormControls\obj\Debug\L10-FormControls160223.pdb
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\bin\Debug\L10-FormControls160223.exe.config
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\obj\Debug\L10-FormControls160223.exe
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\obj\Debug\L10-FormControls160223.xml
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\obj\Debug\L10-FormControls160223.pdb

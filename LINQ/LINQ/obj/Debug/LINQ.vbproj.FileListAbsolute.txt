@@ -1,0 +1,17 @@
+C:\Users\jdickhan\source\repos\LINQ\LINQ\bin\Debug\LINQ.exe.config
+C:\Users\jdickhan\source\repos\LINQ\LINQ\bin\Debug\LINQ.exe
+C:\Users\jdickhan\source\repos\LINQ\LINQ\bin\Debug\LINQ.pdb
+C:\Users\jdickhan\source\repos\LINQ\LINQ\bin\Debug\LINQ.xml
+C:\Users\jdickhan\source\repos\LINQ\LINQ\bin\Debug\EntityFramework.dll
+C:\Users\jdickhan\source\repos\LINQ\LINQ\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jdickhan\source\repos\LINQ\LINQ\bin\Debug\EntityFramework.xml
+C:\Users\jdickhan\source\repos\LINQ\LINQ\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jdickhan\source\repos\LINQ\LINQ\obj\Debug\LINQ.vbprojAssemblyReference.cache
+C:\Users\jdickhan\source\repos\LINQ\LINQ\obj\Debug\LINQ.frmLINQ.resources
+C:\Users\jdickhan\source\repos\LINQ\LINQ\obj\Debug\LINQ.Resources.resources
+C:\Users\jdickhan\source\repos\LINQ\LINQ\obj\Debug\LINQ.vbproj.GenerateResource.cache
+C:\Users\jdickhan\source\repos\LINQ\LINQ\obj\Debug\LINQ.vbproj.CoreCompileInputs.cache
+C:\Users\jdickhan\source\repos\LINQ\LINQ\obj\Debug\LINQ.vbproj.CopyComplete
+C:\Users\jdickhan\source\repos\LINQ\LINQ\obj\Debug\LINQ.exe
+C:\Users\jdickhan\source\repos\LINQ\LINQ\obj\Debug\LINQ.xml
+C:\Users\jdickhan\source\repos\LINQ\LINQ\obj\Debug\LINQ.pdb

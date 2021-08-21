@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bit3444_AutoMechanics.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblBrand">
+    <Key>
+      <PropertyRef Name="brandId" />
+    </Key>
+    <Property Name="brandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblExpertise">
+    <Key>
+      <PropertyRef Name="expertiseId" />
+    </Key>
+    <Property Name="expertiseId" Type="int" Nullable="false" />
+    <Property Name="mechanicId" Type="int" />
+    <Property Name="brandId" Type="int" />
+    <Property Name="Expertise" Type="int" />
+  </EntityType>
+  <EntityType Name="tblMechanic">
+    <Key>
+      <PropertyRef Name="mechanicId" />
+    </Key>
+    <Property Name="mechanicId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="HourlyRate" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_tblExpertise_tblBrand">
+    <End Role="tblBrand" Type="Self.tblBrand" Multiplicity="0..1" />
+    <End Role="tblExpertise" Type="Self.tblExpertise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBrand">
+        <PropertyRef Name="brandId" />
+      </Principal>
+      <Dependent Role="tblExpertise">
+        <PropertyRef Name="brandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblExpertise_tblMechanic">
+    <End Role="tblMechanic" Type="Self.tblMechanic" Multiplicity="0..1" />
+    <End Role="tblExpertise" Type="Self.tblExpertise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMechanic">
+        <PropertyRef Name="mechanicId" />
+      </Principal>
+      <Dependent Role="tblExpertise">
+        <PropertyRef Name="mechanicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bit3444_AutoMechanicsStoreContainer">
+    <EntitySet Name="tblBrand" EntityType="Self.tblBrand" Schema="bit3444_hw4" store:Type="Tables" />
+    <EntitySet Name="tblExpertise" EntityType="Self.tblExpertise" Schema="bit3444_hw4" store:Type="Tables" />
+    <EntitySet Name="tblMechanic" EntityType="Self.tblMechanic" Schema="bit3444_hw4" store:Type="Tables" />
+    <AssociationSet Name="FK_tblExpertise_tblBrand" Association="Self.FK_tblExpertise_tblBrand">
+      <End Role="tblBrand" EntitySet="tblBrand" />
+      <End Role="tblExpertise" EntitySet="tblExpertise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblExpertise_tblMechanic" Association="Self.FK_tblExpertise_tblMechanic">
+      <End Role="tblMechanic" EntitySet="tblMechanic" />
+      <End Role="tblExpertise" EntitySet="tblExpertise" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

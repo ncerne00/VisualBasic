@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bit_2020Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAirports">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="2" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Lat" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Long" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="tblFlights">
+          <Key>
+            <PropertyRef Name="flightID" />
+          </Key>
+          <Property Name="flightID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="departFROM" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="arriveAT" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="distance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bit_2020.bit3444_hw3.vwActiveFlights' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bit_2020.bit3444_hw3.vwActiveFlights2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwActiveFlights2">
+          <Key>
+            <PropertyRef Name="departFROM" />
+            <PropertyRef Name="arriveAT" />
+          </Key>
+          <Property Name="departFROM" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="arriveAT" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Distance" Type="decimal" Precision="19" Scale="1" />
+        </EntityType>
+        <Association Name="FK_tblFlights_tblAirports">
+          <End Role="tblAirports" Type="Self.tblAirports" Multiplicity="1" />
+          <End Role="tblFlights" Type="Self.tblFlights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAirports">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="tblFlights">
+              <PropertyRef Name="arriveAT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFlights_tblAirports1">
+          <End Role="tblAirports" Type="Self.tblAirports" Multiplicity="1" />
+          <End Role="tblFlights" Type="Self.tblFlights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAirports">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="tblFlights">
+              <PropertyRef Name="departFROM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bit_2020ModelStoreContainer">
+          <EntitySet Name="tblAirports" EntityType="Self.tblAirports" Schema="bit3444_hw3" store:Type="Tables" />
+          <EntitySet Name="tblFlights" EntityType="Self.tblFlights" Schema="bit3444_hw3" store:Type="Tables" />
+          <EntitySet Name="vwActiveFlights2" EntityType="Self.vwActiveFlights2" store:Type="Views" store:Schema="bit3444_hw3">
+            <DefiningQuery>SELECT 
+    [vwActiveFlights2].[departFROM] AS [departFROM], 
+    [vwActiveFlights2].[arriveAT] AS [arriveAT], 
+    [vwActiveFlights2].[Distance] AS [Distance]
+    FROM [bit3444_hw3].[vwActiveFlights2] AS [vwActiveFlights2]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tblFlights_tblAirports" Association="Self.FK_tblFlights_tblAirports">
+            <End Role="tblAirports" EntitySet="tblAirports" />
+            <End Role="tblFlights" EntitySet="tblFlights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFlights_tblAirports1" Association="Self.FK_tblFlights_tblAirports1">
+            <End Role="tblAirports" EntitySet="tblAirports" />
+            <End Role="tblFlights" EntitySet="tblFlights" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bit_2020Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAirport">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Lat" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Long" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblFlights" Relationship="Self.FK_tblFlights_tblAirports" FromRole="tblAirports" ToRole="tblFlights" />
+          <NavigationProperty Name="tblFlights1" Relationship="Self.FK_tblFlights_tblAirports1" FromRole="tblAirports" ToRole="tblFlights" />
+        </EntityType>
+        <EntityType Name="tblFlight">
+          <Key>
+            <PropertyRef Name="flightID" />
+          </Key>
+          <Property Name="flightID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="departFROM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="arriveAT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="distance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblAirport" Relationship="Self.FK_tblFlights_tblAirports" FromRole="tblFlights" ToRole="tblAirports" />
+          <NavigationProperty Name="tblAirport1" Relationship="Self.FK_tblFlights_tblAirports1" FromRole="tblFlights" ToRole="tblAirports" />
+        </EntityType>
+        <Association Name="FK_tblFlights_tblAirports">
+          <End Role="tblAirports" Type="Self.tblAirport" Multiplicity="1" />
+          <End Role="tblFlights" Type="Self.tblFlight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAirports">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="tblFlights">
+              <PropertyRef Name="arriveAT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFlights_tblAirports1">
+          <End Role="tblAirports" Type="Self.tblAirport" Multiplicity="1" />
+          <End Role="tblFlights" Type="Self.tblFlight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAirports">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="tblFlights">
+              <PropertyRef Name="departFROM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bit3444_airports" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAirports" EntityType="Self.tblAirport" />
+          <EntitySet Name="tblFlights" EntityType="Self.tblFlight" />
+          <AssociationSet Name="FK_tblFlights_tblAirports" Association="Self.FK_tblFlights_tblAirports">
+            <End Role="tblAirports" EntitySet="tblAirports" />
+            <End Role="tblFlights" EntitySet="tblFlights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFlights_tblAirports1" Association="Self.FK_tblFlights_tblAirports1">
+            <End Role="tblAirports" EntitySet="tblAirports" />
+            <End Role="tblFlights" EntitySet="tblFlights" />
+          </AssociationSet>
+          <EntitySet Name="vwActiveFlights2" EntityType="bit_2020Model.vwActiveFlights2" />
+        </EntityContainer>
+        <EntityType Name="vwActiveFlights2">
+          <Key>
+            <PropertyRef Name="departFROM" />
+            <PropertyRef Name="arriveAT" />
+          </Key>
+          <Property Name="departFROM" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="arriveAT" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Distance" Type="Decimal" Precision="19" Scale="1" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bit_2020ModelStoreContainer" CdmEntityContainer="bit3444_airports">
+          <EntitySetMapping Name="tblAirports">
+            <EntityTypeMapping TypeName="bit_2020Model.tblAirport">
+              <MappingFragment StoreEntitySet="tblAirports">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Long" ColumnName="Long" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFlights">
+            <EntityTypeMapping TypeName="bit_2020Model.tblFlight">
+              <MappingFragment StoreEntitySet="tblFlights">
+                <ScalarProperty Name="flightID" ColumnName="flightID" />
+                <ScalarProperty Name="departFROM" ColumnName="departFROM" />
+                <ScalarProperty Name="arriveAT" ColumnName="arriveAT" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwActiveFlights2">
+            <EntityTypeMapping TypeName="bit_2020Model.vwActiveFlights2">
+              <MappingFragment StoreEntitySet="vwActiveFlights2">
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="arriveAT" ColumnName="arriveAT" />
+                <ScalarProperty Name="departFROM" ColumnName="departFROM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,12 @@
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\bin\Debug\SimpleCalculator.exe.config
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\bin\Debug\SimpleCalculator.exe
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\bin\Debug\SimpleCalculator.pdb
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\bin\Debug\SimpleCalculator.xml
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\obj\Debug\03 - Calculator Validation and Errors.vbprojAssemblyReference.cache
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\obj\Debug\SimpleCalculator.frmCalculator.resources
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\obj\Debug\SimpleCalculator.Resources.resources
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\obj\Debug\03 - Calculator Validation and Errors.vbproj.GenerateResource.cache
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\obj\Debug\03 - Calculator Validation and Errors.vbproj.CoreCompileInputs.cache
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\obj\Debug\SimpleCalculator.exe
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\obj\Debug\SimpleCalculator.xml
+C:\Users\Nick\Documents\BIT 3444\03 - Calculator Validation and Errors STARTER\obj\Debug\SimpleCalculator.pdb

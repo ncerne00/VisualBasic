@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bit3444_ProjectDatabase.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblProjectHours">
+          <Key>
+            <PropertyRef Name="projectid" />
+            <PropertyRef Name="classificationid" />
+            <PropertyRef Name="weekNum" />
+          </Key>
+          <Property Name="projectid" Type="int" Nullable="false" />
+          <Property Name="classificationid" Type="int" Nullable="false" />
+          <Property Name="weekNum" Type="int" Nullable="false" />
+          <Property Name="numberHours" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProjects">
+          <Key>
+            <PropertyRef Name="projectid" />
+          </Key>
+          <Property Name="projectid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="industry" Type="nvarchar" MaxLength="100" />
+          <Property Name="projectRevenue" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="tblStaff">
+          <Key>
+            <PropertyRef Name="staffid" />
+          </Key>
+          <Property Name="staffid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="100" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="100" />
+          <Property Name="staffclassification" Type="int" />
+          <Property Name="base_rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="branch" Type="int" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblStaffClassifications">
+          <Key>
+            <PropertyRef Name="classificationid" />
+          </Key>
+          <Property Name="classificationid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="classification" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bit_2020.bit3444_project2020.tblStaffRates' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblStaffRates">
+          <Key>
+            <PropertyRef Name="staffid" />
+            <PropertyRef Name="projectid" />
+            <PropertyRef Name="rate" />
+          </Key>
+          <Property Name="staffid" Type="int" Nullable="false" />
+          <Property Name="projectid" Type="int" Nullable="false" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bit_2020.bit3444_project2020.vwTotalHours' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwTotalHours">
+          <Key>
+            <PropertyRef Name="staffid" />
+            <PropertyRef Name="projectid" />
+          </Key>
+          <Property Name="staffid" Type="int" Nullable="false" />
+          <Property Name="projectid" Type="int" Nullable="false" />
+          <Property Name="totalHours" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bit_2020.bit3444_project2020.vwTotalProjectCost' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwTotalProjectCost">
+          <Key>
+            <PropertyRef Name="staffid" />
+            <PropertyRef Name="projectid" />
+          </Key>
+          <Property Name="staffid" Type="int" Nullable="false" />
+          <Property Name="projectid" Type="int" Nullable="false" />
+          <Property Name="totalCost" Type="decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bit_2020.bit3444_project2020.vwWeeklyHoursByStaffProject' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwWeeklyHoursByStaffProject">
+          <Key>
+            <PropertyRef Name="staffid" />
+            <PropertyRef Name="projectid" />
+            <PropertyRef Name="weekNum" />
+            <PropertyRef Name="numberHours" />
+          </Key>
+          <Property Name="staffid" Type="int" Nullable="false" />
+          <Property Name="projectid" Type="int" Nullable="false" />
+          <Property Name="weekNum" Type="int" Nullable="false" />
+          <Property Name="numberHours" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblProjectHours_tblProjects">
+          <End Role="tblProjects" Type="Self.tblProjects" Multiplicity="1" />
+          <End Role="tblProjectHours" Type="Self.tblProjectHours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjects">
+              <PropertyRef Name="projectid" />
+            </Principal>
+            <Dependent Role="tblProjectHours">
+              <PropertyRef Name="projectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectHours_tblStaffClassifications">
+          <End Role="tblStaffClassifications" Type="Self.tblStaffClassifications" Multiplicity="1" />
+          <End Role="tblProjectHours" Type="Self.tblProjectHours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStaffClassifications">
+              <PropertyRef Name="classificationid" />
+            </Principal>
+            <Dependent Role="tblProjectHours">
+              <PropertyRef Name="classificationid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStaff_tblStaffClassifications">
+          <End Role="tblStaffClassifications" Type="Self.tblStaffClassifications" Multiplicity="0..1" />
+          <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStaffClassifications">
+              <PropertyRef Name="classificationid" />
+            </Principal>
+            <Dependent Role="tblStaff">
+              <PropertyRef Name="staffclassification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStaffRates_tblProjects">
+          <End Role="tblProjects" Type="Self.tblProjects" Multiplicity="1" />
+          <End Role="tblStaffRates" Type="Self.tblStaffRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjects">
+              <PropertyRef Name="projectid" />
+            </Principal>
+            <Dependent Role="tblStaffRates">
+              <PropertyRef Name="projectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStaffRates_tblStaff">
+          <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="1" />
+          <End Role="tblStaffRates" Type="Self.tblStaffRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStaff">
+              <PropertyRef Name="staffid" />
+            </Principal>
+            <Dependent Role="tblStaffRates">
+              <PropertyRef Name="staffid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bit3444_ProjectDatabaseStoreContainer">
+          <EntitySet Name="tblProjectHours" EntityType="Self.tblProjectHours" Schema="bit3444_project2020" store:Type="Tables" />
+          <EntitySet Name="tblProjects" EntityType="Self.tblProjects" Schema="bit3444_project2020" store:Type="Tables" />
+          <EntitySet Name="tblStaff" EntityType="Self.tblStaff" Schema="bit3444_project2020" store:Type="Tables" />
+          <EntitySet Name="tblStaffClassifications" EntityType="Self.tblStaffClassifications" Schema="bit3444_project2020" store:Type="Tables" />
+          <EntitySet Name="tblStaffRates" EntityType="Self.tblStaffRates" store:Type="Tables" store:Schema="bit3444_project2020">
+            <DefiningQuery>SELECT 
+    [tblStaffRates].[staffid] AS [staffid], 
+    [tblStaffRates].[projectid] AS [projectid], 
+    [tblStaffRates].[rate] AS [rate]
+    FROM [bit3444_project2020].[tblStaffRates] AS [tblStaffRates]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwTotalHours" EntityType="Self.vwTotalHours" store:Type="Views" store:Schema="bit3444_project2020">
+            <DefiningQuery>SELECT 
+    [vwTotalHours].[staffid] AS [staffid], 
+    [vwTotalHours].[projectid] AS [projectid], 
+    [vwTotalHours].[totalHours] AS [totalHours]
+    FROM [bit3444_project2020].[vwTotalHours] AS [vwTotalHours]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwTotalProjectCost" EntityType="Self.vwTotalProjectCost" store:Type="Views" store:Schema="bit3444_project2020">
+            <DefiningQuery>SELECT 
+    [vwTotalProjectCost].[staffid] AS [staffid], 
+    [vwTotalProjectCost].[projectid] AS [projectid], 
+    [vwTotalProjectCost].[totalCost] AS [totalCost]
+    FROM [bit3444_project2020].[vwTotalProjectCost] AS [vwTotalProjectCost]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwWeeklyHoursByStaffProject" EntityType="Self.vwWeeklyHoursByStaffProject" store:Type="Views" store:Schema="bit3444_project2020">
+            <DefiningQuery>SELECT 
+    [vwWeeklyHoursByStaffProject].[staffid] AS [staffid], 
+    [vwWeeklyHoursByStaffProject].[projectid] AS [projectid], 
+    [vwWeeklyHoursByStaffProject].[weekNum] AS [weekNum], 
+    [vwWeeklyHoursByStaffProject].[numberHours] AS [numberHours]
+    FROM [bit3444_project2020].[vwWeeklyHoursByStaffProject] AS [vwWeeklyHoursByStaffProject]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tblProjectHours_tblProjects" Association="Self.FK_tblProjectHours_tblProjects">
+            <End Role="tblProjects" EntitySet="tblProjects" />
+            <End Role="tblProjectHours" EntitySet="tblProjectHours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectHours_tblStaffClassifications" Association="Self.FK_tblProjectHours_tblStaffClassifications">
+            <End Role="tblStaffClassifications" EntitySet="tblStaffClassifications" />
+            <End Role="tblProjectHours" EntitySet="tblProjectHours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStaff_tblStaffClassifications" Association="Self.FK_tblStaff_tblStaffClassifications">
+            <End Role="tblStaffClassifications" EntitySet="tblStaffClassifications" />
+            <End Role="tblStaff" EntitySet="tblStaff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStaffRates_tblProjects" Association="Self.FK_tblStaffRates_tblProjects">
+            <End Role="tblProjects" EntitySet="tblProjects" />
+            <End Role="tblStaffRates" EntitySet="tblStaffRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStaffRates_tblStaff" Association="Self.FK_tblStaffRates_tblStaff">
+            <End Role="tblStaff" EntitySet="tblStaff" />
+            <End Role="tblStaffRates" EntitySet="tblStaffRates" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bit3444_ProjectDatabase" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblProjectHour">
+          <Key>
+            <PropertyRef Name="projectid" />
+            <PropertyRef Name="classificationid" />
+            <PropertyRef Name="weekNum" />
+          </Key>
+          <Property Name="projectid" Type="Int32" Nullable="false" />
+          <Property Name="classificationid" Type="Int32" Nullable="false" />
+          <Property Name="weekNum" Type="Int32" Nullable="false" />
+          <Property Name="numberHours" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblProject" Relationship="Self.FK_tblProjectHours_tblProjects" FromRole="tblProjectHours" ToRole="tblProjects" />
+          <NavigationProperty Name="tblStaffClassification" Relationship="Self.FK_tblProjectHours_tblStaffClassifications" FromRole="tblProjectHours" ToRole="tblStaffClassifications" />
+        </EntityType>
+        <EntityType Name="tblProject">
+          <Key>
+            <PropertyRef Name="projectid" />
+          </Key>
+          <Property Name="projectid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="industry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="projectRevenue" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="tblProjectHours" Relationship="Self.FK_tblProjectHours_tblProjects" FromRole="tblProjects" ToRole="tblProjectHours" />
+          <NavigationProperty Name="tblStaffRates" Relationship="Self.FK_tblStaffRates_tblProjects" FromRole="tblProjects" ToRole="tblStaffRates" />
+        </EntityType>
+        <EntityType Name="tblStaff">
+          <Key>
+            <PropertyRef Name="staffid" />
+          </Key>
+          <Property Name="staffid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="staffclassification" Type="Int32" />
+          <Property Name="base_rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="branch" Type="Int32" />
+          <Property Name="active" Type="Boolean" />
+          <NavigationProperty Name="tblStaffClassification" Relationship="Self.FK_tblStaff_tblStaffClassifications" FromRole="tblStaff" ToRole="tblStaffClassifications" />
+          <NavigationProperty Name="tblStaffRates" Relationship="Self.FK_tblStaffRates_tblStaff" FromRole="tblStaff" ToRole="tblStaffRates" />
+        </EntityType>
+        <EntityType Name="tblStaffClassification">
+          <Key>
+            <PropertyRef Name="classificationid" />
+          </Key>
+          <Property Name="classificationid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="classification" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblProjectHours" Relationship="Self.FK_tblProjectHours_tblStaffClassifications" FromRole="tblStaffClassifications" ToRole="tblProjectHours" />
+          <NavigationProperty Name="tblStaffs" Relationship="Self.FK_tblStaff_tblStaffClassifications" FromRole="tblStaffClassifications" ToRole="tblStaff" />
+        </EntityType>
+        <EntityType Name="tblStaffRate">
+          <Key>
+            <PropertyRef Name="staffid" />
+            <PropertyRef Name="projectid" />
+            <PropertyRef Name="rate" />
+          </Key>
+          <Property Name="staffid" Type="Int32" Nullable="false" />
+          <Property Name="projectid" Type="Int32" Nullable="false" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="tblProject" Relationship="Self.FK_tblStaffRates_tblProjects" FromRole="tblStaffRates" ToRole="tblProjects" />
+          <NavigationProperty Name="tblStaff" Relationship="Self.FK_tblStaffRates_tblStaff" FromRole="tblStaffRates" ToRole="tblStaff" />
+        </EntityType>
+        <EntityType Name="vwTotalHour">
+          <Key>
+            <PropertyRef Name="staffid" />
+            <PropertyRef Name="projectid" />
+          </Key>
+          <Property Name="staffid" Type="Int32" Nullable="false" />
+          <Property Name="projectid" Type="Int32" Nullable="false" />
+          <Property Name="totalHours" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vwTotalProjectCost">
+          <Key>
+            <PropertyRef Name="staffid" />
+            <PropertyRef Name="projectid" />
+          </Key>
+          <Property Name="staffid" Type="Int32" Nullable="false" />
+          <Property Name="projectid" Type="Int32" Nullable="false" />
+          <Property Name="totalCost" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <EntityType Name="vwWeeklyHoursByStaffProject">
+          <Key>
+            <PropertyRef Name="staffid" />
+            <PropertyRef Name="projectid" />
+            <PropertyRef Name="weekNum" />
+            <PropertyRef Name="numberHours" />
+          </Key>
+          <Property Name="staffid" Type="Int32" Nullable="false" />
+          <Property Name="projectid" Type="Int32" Nullable="false" />
+          <Property Name="weekNum" Type="Int32" Nullable="false" />
+          <Property Name="numberHours" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblProjectHours_tblProjects">
+          <End Role="tblProjects" Type="Self.tblProject" Multiplicity="1" />
+          <End Role="tblProjectHours" Type="Self.tblProjectHour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjects">
+              <PropertyRef Name="projectid" />
+            </Principal>
+            <Dependent Role="tblProjectHours">
+              <PropertyRef Name="projectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectHours_tblStaffClassifications">
+          <End Role="tblStaffClassifications" Type="Self.tblStaffClassification" Multiplicity="1" />
+          <End Role="tblProjectHours" Type="Self.tblProjectHour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStaffClassifications">
+              <PropertyRef Name="classificationid" />
+            </Principal>
+            <Dependent Role="tblProjectHours">
+              <PropertyRef Name="classificationid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStaffRates_tblProjects">
+          <End Role="tblProjects" Type="Self.tblProject" Multiplicity="1" />
+          <End Role="tblStaffRates" Type="Self.tblStaffRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjects">
+              <PropertyRef Name="projectid" />
+            </Principal>
+            <Dependent Role="tblStaffRates">
+              <PropertyRef Name="projectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStaff_tblStaffClassifications">
+          <End Role="tblStaffClassifications" Type="Self.tblStaffClassification" Multiplicity="0..1" />
+          <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStaffClassifications">
+              <PropertyRef Name="classificationid" />
+            </Principal>
+            <Dependent Role="tblStaff">
+              <PropertyRef Name="staffclassification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStaffRates_tblStaff">
+          <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="1" />
+          <End Role="tblStaffRates" Type="Self.tblStaffRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStaff">
+              <PropertyRef Name="staffid" />
+            </Principal>
+            <Dependent Role="tblStaffRates">
+              <PropertyRef Name="staffid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bit3444_projectdata" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblProjectHours" EntityType="Self.tblProjectHour" />
+          <EntitySet Name="tblProjects" EntityType="Self.tblProject" />
+          <EntitySet Name="tblStaffs" EntityType="Self.tblStaff" />
+          <EntitySet Name="tblStaffClassifications" EntityType="Self.tblStaffClassification" />
+          <EntitySet Name="tblStaffRates" EntityType="Self.tblStaffRate" />
+          <EntitySet Name="vwTotalHours" EntityType="Self.vwTotalHour" />
+          <EntitySet Name="vwTotalProjectCosts" EntityType="Self.vwTotalProjectCost" />
+          <EntitySet Name="vwWeeklyHoursByStaffProjects" EntityType="Self.vwWeeklyHoursByStaffProject" />
+          <AssociationSet Name="FK_tblProjectHours_tblProjects" Association="Self.FK_tblProjectHours_tblProjects">
+            <End Role="tblProjects" EntitySet="tblProjects" />
+            <End Role="tblProjectHours" EntitySet="tblProjectHours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectHours_tblStaffClassifications" Association="Self.FK_tblProjectHours_tblStaffClassifications">
+            <End Role="tblStaffClassifications" EntitySet="tblStaffClassifications" />
+            <End Role="tblProjectHours" EntitySet="tblProjectHours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStaffRates_tblProjects" Association="Self.FK_tblStaffRates_tblProjects">
+            <End Role="tblProjects" EntitySet="tblProjects" />
+            <End Role="tblStaffRates" EntitySet="tblStaffRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStaff_tblStaffClassifications" Association="Self.FK_tblStaff_tblStaffClassifications">
+            <End Role="tblStaffClassifications" EntitySet="tblStaffClassifications" />
+            <End Role="tblStaff" EntitySet="tblStaffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStaffRates_tblStaff" Association="Self.FK_tblStaffRates_tblStaff">
+            <End Role="tblStaff" EntitySet="tblStaffs" />
+            <End Role="tblStaffRates" EntitySet="tblStaffRates" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bit3444_ProjectDatabaseStoreContainer" CdmEntityContainer="bit3444_projectdata">
+          <EntitySetMapping Name="tblProjectHours">
+            <EntityTypeMapping TypeName="bit3444_ProjectDatabase.tblProjectHour">
+              <MappingFragment StoreEntitySet="tblProjectHours">
+                <ScalarProperty Name="projectid" ColumnName="projectid" />
+                <ScalarProperty Name="classificationid" ColumnName="classificationid" />
+                <ScalarProperty Name="weekNum" ColumnName="weekNum" />
+                <ScalarProperty Name="numberHours" ColumnName="numberHours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjects">
+            <EntityTypeMapping TypeName="bit3444_ProjectDatabase.tblProject">
+              <MappingFragment StoreEntitySet="tblProjects">
+                <ScalarProperty Name="projectid" ColumnName="projectid" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="industry" ColumnName="industry" />
+                <ScalarProperty Name="projectRevenue" ColumnName="projectRevenue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStaffs">
+            <EntityTypeMapping TypeName="bit3444_ProjectDatabase.tblStaff">
+              <MappingFragment StoreEntitySet="tblStaff">
+                <ScalarProperty Name="staffid" ColumnName="staffid" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="staffclassification" ColumnName="staffclassification" />
+                <ScalarProperty Name="base_rate" ColumnName="base_rate" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStaffClassifications">
+            <EntityTypeMapping TypeName="bit3444_ProjectDatabase.tblStaffClassification">
+              <MappingFragment StoreEntitySet="tblStaffClassifications">
+                <ScalarProperty Name="classificationid" ColumnName="classificationid" />
+                <ScalarProperty Name="classification" ColumnName="classification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStaffRates">
+            <EntityTypeMapping TypeName="bit3444_ProjectDatabase.tblStaffRate">
+              <MappingFragment StoreEntitySet="tblStaffRates">
+                <ScalarProperty Name="staffid" ColumnName="staffid" />
+                <ScalarProperty Name="projectid" ColumnName="projectid" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwTotalHours">
+            <EntityTypeMapping TypeName="bit3444_ProjectDatabase.vwTotalHour">
+              <MappingFragment StoreEntitySet="vwTotalHours">
+                <ScalarProperty Name="staffid" ColumnName="staffid" />
+                <ScalarProperty Name="projectid" ColumnName="projectid" />
+                <ScalarProperty Name="totalHours" ColumnName="totalHours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwTotalProjectCosts">
+            <EntityTypeMapping TypeName="bit3444_ProjectDatabase.vwTotalProjectCost">
+              <MappingFragment StoreEntitySet="vwTotalProjectCost">
+                <ScalarProperty Name="staffid" ColumnName="staffid" />
+                <ScalarProperty Name="projectid" ColumnName="projectid" />
+                <ScalarProperty Name="totalCost" ColumnName="totalCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwWeeklyHoursByStaffProjects">
+            <EntityTypeMapping TypeName="bit3444_ProjectDatabase.vwWeeklyHoursByStaffProject">
+              <MappingFragment StoreEntitySet="vwWeeklyHoursByStaffProject">
+                <ScalarProperty Name="staffid" ColumnName="staffid" />
+                <ScalarProperty Name="projectid" ColumnName="projectid" />
+                <ScalarProperty Name="weekNum" ColumnName="weekNum" />
+                <ScalarProperty Name="numberHours" ColumnName="numberHours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

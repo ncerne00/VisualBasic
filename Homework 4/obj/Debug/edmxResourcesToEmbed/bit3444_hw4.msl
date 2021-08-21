@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bit3444_AutoMechanicsStoreContainer" CdmEntityContainer="bit3444_AutoMechanicExpertise">
+    <EntitySetMapping Name="tblBrands">
+      <EntityTypeMapping TypeName="bit3444_AutoMechanics.tblBrand">
+        <MappingFragment StoreEntitySet="tblBrand">
+          <ScalarProperty Name="brandId" ColumnName="brandId" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMechanics">
+      <EntityTypeMapping TypeName="bit3444_AutoMechanics.tblMechanic">
+        <MappingFragment StoreEntitySet="tblMechanic">
+          <ScalarProperty Name="mechanicId" ColumnName="mechanicId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblExpertises">
+      <EntityTypeMapping TypeName="bit3444_AutoMechanics.tblExpertise">
+        <MappingFragment StoreEntitySet="tblExpertise">
+          <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+          <ScalarProperty Name="brandId" ColumnName="brandId" />
+          <ScalarProperty Name="mechanicId" ColumnName="mechanicId" />
+          <ScalarProperty Name="expertiseId" ColumnName="expertiseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

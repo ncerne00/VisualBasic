@@ -1,0 +1,12 @@
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\bin\Debug\Cerne_Homework2.exe.config
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\bin\Debug\Cerne_Homework2.exe
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\bin\Debug\Cerne_Homework2.pdb
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\bin\Debug\Cerne_Homework2.xml
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\obj\Debug\Cerne_Homework2.vbprojAssemblyReference.cache
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\obj\Debug\Cerne_Homework2.demandFrm.resources
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\obj\Debug\Cerne_Homework2.Resources.resources
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\obj\Debug\Cerne_Homework2.vbproj.GenerateResource.cache
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\obj\Debug\Cerne_Homework2.vbproj.CoreCompileInputs.cache
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\obj\Debug\Cerne_Homework2.exe
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\obj\Debug\Cerne_Homework2.xml
+C:\Users\Nick\Documents\BIT 3444\Cerne_Homework2\Cerne_Homework2\obj\Debug\Cerne_Homework2.pdb

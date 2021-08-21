@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bit3444_ProjectDatabase" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblProjectHour">
+    <Key>
+      <PropertyRef Name="projectid" />
+      <PropertyRef Name="classificationid" />
+      <PropertyRef Name="weekNum" />
+    </Key>
+    <Property Name="projectid" Type="Int32" Nullable="false" />
+    <Property Name="classificationid" Type="Int32" Nullable="false" />
+    <Property Name="weekNum" Type="Int32" Nullable="false" />
+    <Property Name="numberHours" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblProject" Relationship="Self.FK_tblProjectHours_tblProjects" FromRole="tblProjectHours" ToRole="tblProjects" />
+    <NavigationProperty Name="tblStaffClassification" Relationship="Self.FK_tblProjectHours_tblStaffClassifications" FromRole="tblProjectHours" ToRole="tblStaffClassifications" />
+  </EntityType>
+  <EntityType Name="tblProject">
+    <Key>
+      <PropertyRef Name="projectid" />
+    </Key>
+    <Property Name="projectid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="companyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="industry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="projectRevenue" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="tblProjectHours" Relationship="Self.FK_tblProjectHours_tblProjects" FromRole="tblProjects" ToRole="tblProjectHours" />
+    <NavigationProperty Name="tblStaffRates" Relationship="Self.FK_tblStaffRates_tblProjects" FromRole="tblProjects" ToRole="tblStaffRates" />
+  </EntityType>
+  <EntityType Name="tblStaff">
+    <Key>
+      <PropertyRef Name="staffid" />
+    </Key>
+    <Property Name="staffid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="staffclassification" Type="Int32" />
+    <Property Name="base_rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="branch" Type="Int32" />
+    <Property Name="active" Type="Boolean" />
+    <NavigationProperty Name="tblStaffClassification" Relationship="Self.FK_tblStaff_tblStaffClassifications" FromRole="tblStaff" ToRole="tblStaffClassifications" />
+    <NavigationProperty Name="tblStaffRates" Relationship="Self.FK_tblStaffRates_tblStaff" FromRole="tblStaff" ToRole="tblStaffRates" />
+  </EntityType>
+  <EntityType Name="tblStaffClassification">
+    <Key>
+      <PropertyRef Name="classificationid" />
+    </Key>
+    <Property Name="classificationid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="classification" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblProjectHours" Relationship="Self.FK_tblProjectHours_tblStaffClassifications" FromRole="tblStaffClassifications" ToRole="tblProjectHours" />
+    <NavigationProperty Name="tblStaffs" Relationship="Self.FK_tblStaff_tblStaffClassifications" FromRole="tblStaffClassifications" ToRole="tblStaff" />
+  </EntityType>
+  <EntityType Name="tblStaffRate">
+    <Key>
+      <PropertyRef Name="staffid" />
+      <PropertyRef Name="projectid" />
+      <PropertyRef Name="rate" />
+    </Key>
+    <Property Name="staffid" Type="Int32" Nullable="false" />
+    <Property Name="projectid" Type="Int32" Nullable="false" />
+    <Property Name="rate" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="tblProject" Relationship="Self.FK_tblStaffRates_tblProjects" FromRole="tblStaffRates" ToRole="tblProjects" />
+    <NavigationProperty Name="tblStaff" Relationship="Self.FK_tblStaffRates_tblStaff" FromRole="tblStaffRates" ToRole="tblStaff" />
+  </EntityType>
+  <EntityType Name="vwTotalHour">
+    <Key>
+      <PropertyRef Name="staffid" />
+      <PropertyRef Name="projectid" />
+    </Key>
+    <Property Name="staffid" Type="Int32" Nullable="false" />
+    <Property Name="projectid" Type="Int32" Nullable="false" />
+    <Property Name="totalHours" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwTotalProjectCost">
+    <Key>
+      <PropertyRef Name="staffid" />
+      <PropertyRef Name="projectid" />
+    </Key>
+    <Property Name="staffid" Type="Int32" Nullable="false" />
+    <Property Name="projectid" Type="Int32" Nullable="false" />
+    <Property Name="totalCost" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="vwWeeklyHoursByStaffProject">
+    <Key>
+      <PropertyRef Name="staffid" />
+      <PropertyRef Name="projectid" />
+      <PropertyRef Name="weekNum" />
+      <PropertyRef Name="numberHours" />
+    </Key>
+    <Property Name="staffid" Type="Int32" Nullable="false" />
+    <Property Name="projectid" Type="Int32" Nullable="false" />
+    <Property Name="weekNum" Type="Int32" Nullable="false" />
+    <Property Name="numberHours" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblProjectHours_tblProjects">
+    <End Role="tblProjects" Type="Self.tblProject" Multiplicity="1" />
+    <End Role="tblProjectHours" Type="Self.tblProjectHour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjects">
+        <PropertyRef Name="projectid" />
+      </Principal>
+      <Dependent Role="tblProjectHours">
+        <PropertyRef Name="projectid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProjectHours_tblStaffClassifications">
+    <End Role="tblStaffClassifications" Type="Self.tblStaffClassification" Multiplicity="1" />
+    <End Role="tblProjectHours" Type="Self.tblProjectHour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStaffClassifications">
+        <PropertyRef Name="classificationid" />
+      </Principal>
+      <Dependent Role="tblProjectHours">
+        <PropertyRef Name="classificationid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStaffRates_tblProjects">
+    <End Role="tblProjects" Type="Self.tblProject" Multiplicity="1" />
+    <End Role="tblStaffRates" Type="Self.tblStaffRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjects">
+        <PropertyRef Name="projectid" />
+      </Principal>
+      <Dependent Role="tblStaffRates">
+        <PropertyRef Name="projectid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStaff_tblStaffClassifications">
+    <End Role="tblStaffClassifications" Type="Self.tblStaffClassification" Multiplicity="0..1" />
+    <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStaffClassifications">
+        <PropertyRef Name="classificationid" />
+      </Principal>
+      <Dependent Role="tblStaff">
+        <PropertyRef Name="staffclassification" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStaffRates_tblStaff">
+    <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="1" />
+    <End Role="tblStaffRates" Type="Self.tblStaffRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStaff">
+        <PropertyRef Name="staffid" />
+      </Principal>
+      <Dependent Role="tblStaffRates">
+        <PropertyRef Name="staffid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bit3444_projectdata" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblProjectHours" EntityType="Self.tblProjectHour" />
+    <EntitySet Name="tblProjects" EntityType="Self.tblProject" />
+    <EntitySet Name="tblStaffs" EntityType="Self.tblStaff" />
+    <EntitySet Name="tblStaffClassifications" EntityType="Self.tblStaffClassification" />
+    <EntitySet Name="tblStaffRates" EntityType="Self.tblStaffRate" />
+    <EntitySet Name="vwTotalHours" EntityType="Self.vwTotalHour" />
+    <EntitySet Name="vwTotalProjectCosts" EntityType="Self.vwTotalProjectCost" />
+    <EntitySet Name="vwWeeklyHoursByStaffProjects" EntityType="Self.vwWeeklyHoursByStaffProject" />
+    <AssociationSet Name="FK_tblProjectHours_tblProjects" Association="Self.FK_tblProjectHours_tblProjects">
+      <End Role="tblProjects" EntitySet="tblProjects" />
+      <End Role="tblProjectHours" EntitySet="tblProjectHours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProjectHours_tblStaffClassifications" Association="Self.FK_tblProjectHours_tblStaffClassifications">
+      <End Role="tblStaffClassifications" EntitySet="tblStaffClassifications" />
+      <End Role="tblProjectHours" EntitySet="tblProjectHours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaffRates_tblProjects" Association="Self.FK_tblStaffRates_tblProjects">
+      <End Role="tblProjects" EntitySet="tblProjects" />
+      <End Role="tblStaffRates" EntitySet="tblStaffRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaff_tblStaffClassifications" Association="Self.FK_tblStaff_tblStaffClassifications">
+      <End Role="tblStaffClassifications" EntitySet="tblStaffClassifications" />
+      <End Role="tblStaff" EntitySet="tblStaffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaffRates_tblStaff" Association="Self.FK_tblStaffRates_tblStaff">
+      <End Role="tblStaff" EntitySet="tblStaffs" />
+      <End Role="tblStaffRates" EntitySet="tblStaffRates" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bit_2020Model1StoreContainer" CdmEntityContainer="bit3444_airports2">
+    <EntitySetMapping Name="tblAirports">
+      <EntityTypeMapping TypeName="bit_2020Model1.tblAirport">
+        <MappingFragment StoreEntitySet="tblAirports">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFlights">
+      <EntityTypeMapping TypeName="bit_2020Model1.tblFlight">
+        <MappingFragment StoreEntitySet="tblFlights">
+          <ScalarProperty Name="flightID" ColumnName="flightID" />
+          <ScalarProperty Name="departFROM" ColumnName="departFROM" />
+          <ScalarProperty Name="arriveAT" ColumnName="arriveAT" />
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

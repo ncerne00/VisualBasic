@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bit3444_ProjectDatabase.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblProjectHours">
+    <Key>
+      <PropertyRef Name="projectid" />
+      <PropertyRef Name="classificationid" />
+      <PropertyRef Name="weekNum" />
+    </Key>
+    <Property Name="projectid" Type="int" Nullable="false" />
+    <Property Name="classificationid" Type="int" Nullable="false" />
+    <Property Name="weekNum" Type="int" Nullable="false" />
+    <Property Name="numberHours" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjects">
+    <Key>
+      <PropertyRef Name="projectid" />
+    </Key>
+    <Property Name="projectid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="companyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="industry" Type="nvarchar" MaxLength="100" />
+    <Property Name="projectRevenue" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tblStaff">
+    <Key>
+      <PropertyRef Name="staffid" />
+    </Key>
+    <Property Name="staffid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="nvarchar" MaxLength="100" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="100" />
+    <Property Name="staffclassification" Type="int" />
+    <Property Name="base_rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="branch" Type="int" />
+    <Property Name="active" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblStaffClassifications">
+    <Key>
+      <PropertyRef Name="classificationid" />
+    </Key>
+    <Property Name="classificationid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="classification" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bit_2020.bit3444_project2020.tblStaffRates' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblStaffRates">
+    <Key>
+      <PropertyRef Name="staffid" />
+      <PropertyRef Name="projectid" />
+      <PropertyRef Name="rate" />
+    </Key>
+    <Property Name="staffid" Type="int" Nullable="false" />
+    <Property Name="projectid" Type="int" Nullable="false" />
+    <Property Name="rate" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bit_2020.bit3444_project2020.vwTotalHours' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwTotalHours">
+    <Key>
+      <PropertyRef Name="staffid" />
+      <PropertyRef Name="projectid" />
+    </Key>
+    <Property Name="staffid" Type="int" Nullable="false" />
+    <Property Name="projectid" Type="int" Nullable="false" />
+    <Property Name="totalHours" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bit_2020.bit3444_project2020.vwTotalProjectCost' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwTotalProjectCost">
+    <Key>
+      <PropertyRef Name="staffid" />
+      <PropertyRef Name="projectid" />
+    </Key>
+    <Property Name="staffid" Type="int" Nullable="false" />
+    <Property Name="projectid" Type="int" Nullable="false" />
+    <Property Name="totalCost" Type="decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bit_2020.bit3444_project2020.vwWeeklyHoursByStaffProject' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwWeeklyHoursByStaffProject">
+    <Key>
+      <PropertyRef Name="staffid" />
+      <PropertyRef Name="projectid" />
+      <PropertyRef Name="weekNum" />
+      <PropertyRef Name="numberHours" />
+    </Key>
+    <Property Name="staffid" Type="int" Nullable="false" />
+    <Property Name="projectid" Type="int" Nullable="false" />
+    <Property Name="weekNum" Type="int" Nullable="false" />
+    <Property Name="numberHours" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblProjectHours_tblProjects">
+    <End Role="tblProjects" Type="Self.tblProjects" Multiplicity="1" />
+    <End Role="tblProjectHours" Type="Self.tblProjectHours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjects">
+        <PropertyRef Name="projectid" />
+      </Principal>
+      <Dependent Role="tblProjectHours">
+        <PropertyRef Name="projectid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProjectHours_tblStaffClassifications">
+    <End Role="tblStaffClassifications" Type="Self.tblStaffClassifications" Multiplicity="1" />
+    <End Role="tblProjectHours" Type="Self.tblProjectHours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStaffClassifications">
+        <PropertyRef Name="classificationid" />
+      </Principal>
+      <Dependent Role="tblProjectHours">
+        <PropertyRef Name="classificationid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStaff_tblStaffClassifications">
+    <End Role="tblStaffClassifications" Type="Self.tblStaffClassifications" Multiplicity="0..1" />
+    <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStaffClassifications">
+        <PropertyRef Name="classificationid" />
+      </Principal>
+      <Dependent Role="tblStaff">
+        <PropertyRef Name="staffclassification" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStaffRates_tblProjects">
+    <End Role="tblProjects" Type="Self.tblProjects" Multiplicity="1" />
+    <End Role="tblStaffRates" Type="Self.tblStaffRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjects">
+        <PropertyRef Name="projectid" />
+      </Principal>
+      <Dependent Role="tblStaffRates">
+        <PropertyRef Name="projectid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStaffRates_tblStaff">
+    <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="1" />
+    <End Role="tblStaffRates" Type="Self.tblStaffRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStaff">
+        <PropertyRef Name="staffid" />
+      </Principal>
+      <Dependent Role="tblStaffRates">
+        <PropertyRef Name="staffid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bit3444_ProjectDatabaseStoreContainer">
+    <EntitySet Name="tblProjectHours" EntityType="Self.tblProjectHours" Schema="bit3444_project2020" store:Type="Tables" />
+    <EntitySet Name="tblProjects" EntityType="Self.tblProjects" Schema="bit3444_project2020" store:Type="Tables" />
+    <EntitySet Name="tblStaff" EntityType="Self.tblStaff" Schema="bit3444_project2020" store:Type="Tables" />
+    <EntitySet Name="tblStaffClassifications" EntityType="Self.tblStaffClassifications" Schema="bit3444_project2020" store:Type="Tables" />
+    <EntitySet Name="tblStaffRates" EntityType="Self.tblStaffRates" store:Type="Tables" store:Schema="bit3444_project2020">
+      <DefiningQuery>SELECT 
+    [tblStaffRates].[staffid] AS [staffid], 
+    [tblStaffRates].[projectid] AS [projectid], 
+    [tblStaffRates].[rate] AS [rate]
+    FROM [bit3444_project2020].[tblStaffRates] AS [tblStaffRates]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwTotalHours" EntityType="Self.vwTotalHours" store:Type="Views" store:Schema="bit3444_project2020">
+      <DefiningQuery>SELECT 
+    [vwTotalHours].[staffid] AS [staffid], 
+    [vwTotalHours].[projectid] AS [projectid], 
+    [vwTotalHours].[totalHours] AS [totalHours]
+    FROM [bit3444_project2020].[vwTotalHours] AS [vwTotalHours]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwTotalProjectCost" EntityType="Self.vwTotalProjectCost" store:Type="Views" store:Schema="bit3444_project2020">
+      <DefiningQuery>SELECT 
+    [vwTotalProjectCost].[staffid] AS [staffid], 
+    [vwTotalProjectCost].[projectid] AS [projectid], 
+    [vwTotalProjectCost].[totalCost] AS [totalCost]
+    FROM [bit3444_project2020].[vwTotalProjectCost] AS [vwTotalProjectCost]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwWeeklyHoursByStaffProject" EntityType="Self.vwWeeklyHoursByStaffProject" store:Type="Views" store:Schema="bit3444_project2020">
+      <DefiningQuery>SELECT 
+    [vwWeeklyHoursByStaffProject].[staffid] AS [staffid], 
+    [vwWeeklyHoursByStaffProject].[projectid] AS [projectid], 
+    [vwWeeklyHoursByStaffProject].[weekNum] AS [weekNum], 
+    [vwWeeklyHoursByStaffProject].[numberHours] AS [numberHours]
+    FROM [bit3444_project2020].[vwWeeklyHoursByStaffProject] AS [vwWeeklyHoursByStaffProject]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tblProjectHours_tblProjects" Association="Self.FK_tblProjectHours_tblProjects">
+      <End Role="tblProjects" EntitySet="tblProjects" />
+      <End Role="tblProjectHours" EntitySet="tblProjectHours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProjectHours_tblStaffClassifications" Association="Self.FK_tblProjectHours_tblStaffClassifications">
+      <End Role="tblStaffClassifications" EntitySet="tblStaffClassifications" />
+      <End Role="tblProjectHours" EntitySet="tblProjectHours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaff_tblStaffClassifications" Association="Self.FK_tblStaff_tblStaffClassifications">
+      <End Role="tblStaffClassifications" EntitySet="tblStaffClassifications" />
+      <End Role="tblStaff" EntitySet="tblStaff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaffRates_tblProjects" Association="Self.FK_tblStaffRates_tblProjects">
+      <End Role="tblProjects" EntitySet="tblProjects" />
+      <End Role="tblStaffRates" EntitySet="tblStaffRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaffRates_tblStaff" Association="Self.FK_tblStaffRates_tblStaff">
+      <End Role="tblStaff" EntitySet="tblStaff" />
+      <End Role="tblStaffRates" EntitySet="tblStaffRates" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

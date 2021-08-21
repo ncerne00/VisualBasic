@@ -1,0 +1,5 @@
+C:\Users\Nick\Documents\BIT 3444\02 - Calculator\obj\Debug\02 - Calculator.vbprojAssemblyReference.cache
+C:\Users\Nick\Documents\BIT 3444\02 - Calculator\obj\Debug\Variables.frmCalculator.resources
+C:\Users\Nick\Documents\BIT 3444\02 - Calculator\obj\Debug\Variables.Resources.resources
+C:\Users\Nick\Documents\BIT 3444\02 - Calculator\obj\Debug\02 - Calculator.vbproj.GenerateResource.cache
+C:\Users\Nick\Documents\BIT 3444\02 - Calculator\obj\Debug\02 - Calculator.vbproj.CoreCompileInputs.cache

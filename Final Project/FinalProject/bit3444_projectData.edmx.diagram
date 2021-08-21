@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2788fa3693884076851ae4499bffd5d5" Name="Diagram1">
+        <EntityTypeShape EntityType="bit3444_ProjectDatabase.tblProjectHour" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bit3444_ProjectDatabase.tblProject" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bit3444_ProjectDatabase.tblStaff" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bit3444_ProjectDatabase.tblStaffClassification" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="bit3444_ProjectDatabase.tblStaffRate" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bit3444_ProjectDatabase.vwTotalHour" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bit3444_ProjectDatabase.vwTotalProjectCost" Width="1.5" PointX="7.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bit3444_ProjectDatabase.vwWeeklyHoursByStaffProject" Width="1.5" PointX="7.75" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="bit3444_ProjectDatabase.FK_tblProjectHours_tblProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="bit3444_ProjectDatabase.FK_tblProjectHours_tblStaffClassifications" ManuallyRouted="false" />
+        <AssociationConnector Association="bit3444_ProjectDatabase.FK_tblStaffRates_tblProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="bit3444_ProjectDatabase.FK_tblStaff_tblStaffClassifications" ManuallyRouted="false" />
+        <AssociationConnector Association="bit3444_ProjectDatabase.FK_tblStaffRates_tblStaff" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

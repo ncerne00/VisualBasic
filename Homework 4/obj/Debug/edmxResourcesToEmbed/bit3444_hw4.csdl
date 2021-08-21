@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bit3444_AutoMechanics" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblBrand">
+    <Key>
+      <PropertyRef Name="brandId" />
+    </Key>
+    <Property Name="brandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblExpertises" Relationship="bit3444_AutoMechanics.FK_tblExpertise_tblBrand" FromRole="tblBrand" ToRole="tblExpertise" />
+  </EntityType>
+  <EntityType Name="tblMechanic">
+    <Key>
+      <PropertyRef Name="mechanicId" />
+    </Key>
+    <Property Name="mechanicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HourlyRate" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="tblExpertises" Relationship="bit3444_AutoMechanics.FK_tblExpertise_tblMechanic" FromRole="tblMechanic" ToRole="tblExpertise" />
+  </EntityType>
+  <EntityContainer Name="bit3444_AutoMechanicExpertise" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblBrands" EntityType="Self.tblBrand" />
+    <EntitySet Name="tblMechanics" EntityType="Self.tblMechanic" />
+    <EntitySet Name="tblExpertises" EntityType="bit3444_AutoMechanics.tblExpertise" />
+    <AssociationSet Name="FK_tblExpertise_tblBrand" Association="bit3444_AutoMechanics.FK_tblExpertise_tblBrand">
+      <End Role="tblBrand" EntitySet="tblBrands" />
+      <End Role="tblExpertise" EntitySet="tblExpertises" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblExpertise_tblMechanic" Association="bit3444_AutoMechanics.FK_tblExpertise_tblMechanic">
+      <End Role="tblMechanic" EntitySet="tblMechanics" />
+      <End Role="tblExpertise" EntitySet="tblExpertises" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblExpertise">
+    <Key>
+      <PropertyRef Name="expertiseId" />
+    </Key>
+    <Property Name="expertiseId" Type="Int32" Nullable="false" />
+    <Property Name="mechanicId" Type="Int32" />
+    <Property Name="brandId" Type="Int32" />
+    <Property Name="Expertise" Type="Int32" />
+    <NavigationProperty Name="tblBrand" Relationship="bit3444_AutoMechanics.FK_tblExpertise_tblBrand" FromRole="tblExpertise" ToRole="tblBrand" />
+    <NavigationProperty Name="tblMechanic" Relationship="bit3444_AutoMechanics.FK_tblExpertise_tblMechanic" FromRole="tblExpertise" ToRole="tblMechanic" />
+  </EntityType>
+  <Association Name="FK_tblExpertise_tblBrand">
+    <End Type="bit3444_AutoMechanics.tblBrand" Role="tblBrand" Multiplicity="0..1" />
+    <End Type="bit3444_AutoMechanics.tblExpertise" Role="tblExpertise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBrand">
+        <PropertyRef Name="brandId" />
+      </Principal>
+      <Dependent Role="tblExpertise">
+        <PropertyRef Name="brandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblExpertise_tblMechanic">
+    <End Type="bit3444_AutoMechanics.tblMechanic" Role="tblMechanic" Multiplicity="0..1" />
+    <End Type="bit3444_AutoMechanics.tblExpertise" Role="tblExpertise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMechanic">
+        <PropertyRef Name="mechanicId" />
+      </Principal>
+      <Dependent Role="tblExpertise">
+        <PropertyRef Name="mechanicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

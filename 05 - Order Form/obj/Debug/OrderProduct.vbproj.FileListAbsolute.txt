@@ -1,0 +1,57 @@
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\bin\Debug\L10-FormControls160223.exe.config
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\obj\Debug\L10-FormControls160223.exe
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\obj\Debug\L10-FormControls160223.xml
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\obj\Debug\L10-FormControls160223.pdb
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\bin\Debug\L10-FormControls160223.exe
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\bin\Debug\L10-FormControls160223.pdb
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\bin\Debug\L10-FormControls160223.xml
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\obj\Debug\L10_FormControls160223.frmOrder.resources
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\obj\Debug\L10_FormControls160223.frmProduct.resources
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\obj\Debug\L10_FormControls160223.Resources.resources
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\FINISHED\W05A-FormControls-Finished\obj\Debug\OrderProduct.vbproj.GenerateResource.Cache
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\bin\Debug\FormControls.exe.config
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\bin\Debug\FormControls.exe
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\bin\Debug\FormControls.pdb
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\bin\Debug\FormControls.xml
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\obj\Debug\FormControls.frmOrder.resources
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\obj\Debug\FormControls.frmProduct.resources
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\obj\Debug\FormControls.Resources.resources
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\obj\Debug\OrderProduct.vbproj.GenerateResource.Cache
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\obj\Debug\FormControls.exe
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\obj\Debug\FormControls.xml
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls-Finished\obj\Debug\FormControls.pdb
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls\bin\Debug\FormControls.exe.config
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls\obj\Debug\FormControls.exe
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls\obj\Debug\FormControls.xml
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls\obj\Debug\FormControls.pdb
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls\obj\Debug\OrderProduct.vbprojResolveAssemblyReference.cache
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls\obj\Debug\FormControls.frmOrder.resources
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls\obj\Debug\FormControls.frmProduct.resources
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls\obj\Debug\FormControls.Resources.resources
+D:\Documents\TEACHING\BIT3444\Prep\W05A-FormControls\obj\Debug\OrderProduct.vbproj.GenerateResource.Cache
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\OrderProduct.vbprojAssemblyReference.cache
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.frmOrder.resources
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.frmProduct.resources
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.Resources.resources
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\OrderProduct.vbproj.GenerateResource.cache
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\OrderProduct.vbproj.CoreCompileInputs.cache
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.exe
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.xml
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.pdb
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\bin\Debug\FormControls.exe.config
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\bin\Debug\FormControls.exe
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\bin\Debug\FormControls.pdb
+C:\Users\Nick\Documents\BIT 3444\05 - Order Form - STARTER\bin\Debug\FormControls.xml
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\OrderProduct.vbprojAssemblyReference.cache
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.frmOrder.resources
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.frmProduct.resources
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.Resources.resources
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\OrderProduct.vbproj.GenerateResource.cache
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\OrderProduct.vbproj.CoreCompileInputs.cache
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.exe
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.xml
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\obj\Debug\FormControls.pdb
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\bin\Debug\FormControls.exe.config
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\bin\Debug\FormControls.exe
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\bin\Debug\FormControls.pdb
+C:\Users\nickc\OneDrive\Documents\BIT 3444\05 - Order Form - STARTER\bin\Debug\FormControls.xml

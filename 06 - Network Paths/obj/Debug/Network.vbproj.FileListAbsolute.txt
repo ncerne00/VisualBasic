@@ -1,0 +1,12 @@
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\bin\Debug\PropertiesEventsOperators.exe.config
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\bin\Debug\PropertiesEventsOperators.exe
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\bin\Debug\PropertiesEventsOperators.pdb
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\bin\Debug\PropertiesEventsOperators.xml
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\obj\Debug\Network.vbprojAssemblyReference.cache
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\obj\Debug\PropertiesEventsOperators.frmNetwork.resources
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\obj\Debug\PropertiesEventsOperators.Resources.resources
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\obj\Debug\Network.vbproj.GenerateResource.cache
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\obj\Debug\Network.vbproj.CoreCompileInputs.cache
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\obj\Debug\PropertiesEventsOperators.exe
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\obj\Debug\PropertiesEventsOperators.xml
+C:\Users\Nick\Documents\BIT 3444\06 - Network Paths\obj\Debug\PropertiesEventsOperators.pdb

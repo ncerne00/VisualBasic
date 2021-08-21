@@ -1,0 +1,16 @@
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\bin\Debug\L10-FormControls160223.exe.config
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\bin\Debug\L10-FormControls160223.exe
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\bin\Debug\L10-FormControls160223.pdb
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\bin\Debug\L10-FormControls160223.xml
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\obj\Debug\L10-FormControls160223.vbprojResolveAssemblyReference.cache
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\obj\Debug\L10_FormControls160223.frmProduct.resources
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\obj\Debug\L10_FormControls160223.Resources.resources
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\obj\Debug\L10-FormControls160223.vbproj.GenerateResource.Cache
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\obj\Debug\L10-FormControls160223.exe
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\obj\Debug\L10-FormControls160223.xml
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\obj\Debug\L10-FormControls160223.pdb
+C:\BIT3444\InClass\CRN20409(0200PM)\L10-FormControls160223\obj\Debug\L10_FormControls160223.frmOrder.resources
+C:\BIT3444\InClass\PREP\W06T-FormControls\bin\Debug\L10-FormControls160223.exe.config
+C:\BIT3444\InClass\PREP\W06T-FormControls\obj\Debug\L10-FormControls160223.exe
+C:\BIT3444\InClass\PREP\W06T-FormControls\obj\Debug\L10-FormControls160223.xml
+C:\BIT3444\InClass\PREP\W06T-FormControls\obj\Debug\L10-FormControls160223.pdb

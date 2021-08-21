@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bit3444_ProjectDatabaseStoreContainer" CdmEntityContainer="bit3444_projectdata">
+    <EntitySetMapping Name="tblProjectHours">
+      <EntityTypeMapping TypeName="bit3444_ProjectDatabase.tblProjectHour">
+        <MappingFragment StoreEntitySet="tblProjectHours">
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="classificationid" ColumnName="classificationid" />
+          <ScalarProperty Name="weekNum" ColumnName="weekNum" />
+          <ScalarProperty Name="numberHours" ColumnName="numberHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjects">
+      <EntityTypeMapping TypeName="bit3444_ProjectDatabase.tblProject">
+        <MappingFragment StoreEntitySet="tblProjects">
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="industry" ColumnName="industry" />
+          <ScalarProperty Name="projectRevenue" ColumnName="projectRevenue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStaffs">
+      <EntityTypeMapping TypeName="bit3444_ProjectDatabase.tblStaff">
+        <MappingFragment StoreEntitySet="tblStaff">
+          <ScalarProperty Name="staffid" ColumnName="staffid" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="staffclassification" ColumnName="staffclassification" />
+          <ScalarProperty Name="base_rate" ColumnName="base_rate" />
+          <ScalarProperty Name="branch" ColumnName="branch" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStaffClassifications">
+      <EntityTypeMapping TypeName="bit3444_ProjectDatabase.tblStaffClassification">
+        <MappingFragment StoreEntitySet="tblStaffClassifications">
+          <ScalarProperty Name="classificationid" ColumnName="classificationid" />
+          <ScalarProperty Name="classification" ColumnName="classification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStaffRates">
+      <EntityTypeMapping TypeName="bit3444_ProjectDatabase.tblStaffRate">
+        <MappingFragment StoreEntitySet="tblStaffRates">
+          <ScalarProperty Name="staffid" ColumnName="staffid" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwTotalHours">
+      <EntityTypeMapping TypeName="bit3444_ProjectDatabase.vwTotalHour">
+        <MappingFragment StoreEntitySet="vwTotalHours">
+          <ScalarProperty Name="staffid" ColumnName="staffid" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="totalHours" ColumnName="totalHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwTotalProjectCosts">
+      <EntityTypeMapping TypeName="bit3444_ProjectDatabase.vwTotalProjectCost">
+        <MappingFragment StoreEntitySet="vwTotalProjectCost">
+          <ScalarProperty Name="staffid" ColumnName="staffid" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="totalCost" ColumnName="totalCost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwWeeklyHoursByStaffProjects">
+      <EntityTypeMapping TypeName="bit3444_ProjectDatabase.vwWeeklyHoursByStaffProject">
+        <MappingFragment StoreEntitySet="vwWeeklyHoursByStaffProject">
+          <ScalarProperty Name="staffid" ColumnName="staffid" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="weekNum" ColumnName="weekNum" />
+          <ScalarProperty Name="numberHours" ColumnName="numberHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

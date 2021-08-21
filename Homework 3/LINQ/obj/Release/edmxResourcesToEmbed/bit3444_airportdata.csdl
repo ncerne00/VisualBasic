@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bit_2020Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAirport">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Lat" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Long" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblFlights" Relationship="Self.FK_tblFlights_tblAirports" FromRole="tblAirports" ToRole="tblFlights" />
+    <NavigationProperty Name="tblFlights1" Relationship="Self.FK_tblFlights_tblAirports1" FromRole="tblAirports" ToRole="tblFlights" />
+  </EntityType>
+  <EntityType Name="tblFlight">
+    <Key>
+      <PropertyRef Name="flightID" />
+    </Key>
+    <Property Name="flightID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="departFROM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="arriveAT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="distance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblAirport" Relationship="Self.FK_tblFlights_tblAirports" FromRole="tblFlights" ToRole="tblAirports" />
+    <NavigationProperty Name="tblAirport1" Relationship="Self.FK_tblFlights_tblAirports1" FromRole="tblFlights" ToRole="tblAirports" />
+  </EntityType>
+  <Association Name="FK_tblFlights_tblAirports">
+    <End Role="tblAirports" Type="Self.tblAirport" Multiplicity="1" />
+    <End Role="tblFlights" Type="Self.tblFlight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAirports">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="tblFlights">
+        <PropertyRef Name="arriveAT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFlights_tblAirports1">
+    <End Role="tblAirports" Type="Self.tblAirport" Multiplicity="1" />
+    <End Role="tblFlights" Type="Self.tblFlight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAirports">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="tblFlights">
+        <PropertyRef Name="departFROM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bit3444_airports" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAirports" EntityType="Self.tblAirport" />
+    <EntitySet Name="tblFlights" EntityType="Self.tblFlight" />
+    <AssociationSet Name="FK_tblFlights_tblAirports" Association="Self.FK_tblFlights_tblAirports">
+      <End Role="tblAirports" EntitySet="tblAirports" />
+      <End Role="tblFlights" EntitySet="tblFlights" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFlights_tblAirports1" Association="Self.FK_tblFlights_tblAirports1">
+      <End Role="tblAirports" EntitySet="tblAirports" />
+      <End Role="tblFlights" EntitySet="tblFlights" />
+    </AssociationSet>
+    <EntitySet Name="vwActiveFlights2" EntityType="bit_2020Model.vwActiveFlights2" />
+  </EntityContainer>
+  <EntityType Name="vwActiveFlights2">
+    <Key>
+      <PropertyRef Name="departFROM" />
+      <PropertyRef Name="arriveAT" />
+    </Key>
+    <Property Name="departFROM" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="arriveAT" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Distance" Type="Decimal" Precision="19" Scale="1" />
+  </EntityType>
+</Schema>

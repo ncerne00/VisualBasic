@@ -1,0 +1,50 @@
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\bin\Debug\L04-UserInput160202.exe.config
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\bin\Debug\L04-UserInput160202.exe
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\bin\Debug\L04-UserInput160202.pdb
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\bin\Debug\L04-UserInput160202.xml
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\obj\Debug\UserInput.vbprojResolveAssemblyReference.cache
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\obj\Debug\L04_UserInput160202.frmUserInput.resources
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\obj\Debug\L04_UserInput160202.Resources.resources
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\obj\Debug\UserInput.vbproj.GenerateResource.Cache
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\obj\Debug\L04-UserInput160202.exe
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\obj\Debug\L04-UserInput160202.xml
+D:\Documents\TEACHING\BIT3444_Spring17\Prep\W04A-ArraysLoops\obj\Debug\L04-UserInput160202.pdb
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\bin\Debug\ArraysLoops.exe.config
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\bin\Debug\ArraysLoops.exe
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\bin\Debug\ArraysLoops.pdb
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\bin\Debug\ArraysLoops.xml
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\obj\Debug\UserInput.vbprojResolveAssemblyReference.cache
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\obj\Debug\ArraysLoops.frmUserInput.resources
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\obj\Debug\ArraysLoops.Resources.resources
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\obj\Debug\UserInput.vbproj.GenerateResource.Cache
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\obj\Debug\ArraysLoops.exe
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\obj\Debug\ArraysLoops.xml
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops-Finished\obj\Debug\ArraysLoops.pdb
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops\bin\Debug\ArraysLoops.exe.config
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops\obj\Debug\ArraysLoops.exe
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops\obj\Debug\ArraysLoops.xml
+D:\Documents\TEACHING\BIT3444\Prep\W04A-ArraysLoops\obj\Debug\ArraysLoops.pdb
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\obj\Debug\UserInput.vbprojAssemblyReference.cache
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\obj\Debug\ArraysLoops.frmUserInput.resources
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\obj\Debug\ArraysLoops.Resources.resources
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\obj\Debug\UserInput.vbproj.GenerateResource.cache
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\obj\Debug\UserInput.vbproj.CoreCompileInputs.cache
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\obj\Debug\ArraysLoops.exe
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\obj\Debug\ArraysLoops.xml
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\obj\Debug\ArraysLoops.pdb
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\bin\Debug\ArraysLoops.exe.config
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\bin\Debug\ArraysLoops.exe
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\bin\Debug\ArraysLoops.pdb
+C:\Users\jdickhan\Downloads\W04A-ArraysLoops\bin\Debug\ArraysLoops.xml
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\obj\Debug\UserInput.vbprojAssemblyReference.cache
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\obj\Debug\ArraysLoops.frmUserInput.resources
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\obj\Debug\ArraysLoops.Resources.resources
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\obj\Debug\UserInput.vbproj.GenerateResource.cache
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\obj\Debug\UserInput.vbproj.CoreCompileInputs.cache
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\obj\Debug\ArraysLoops.exe
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\obj\Debug\ArraysLoops.xml
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\obj\Debug\ArraysLoops.pdb
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\bin\Debug\ArraysLoops.exe.config
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\bin\Debug\ArraysLoops.exe
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\bin\Debug\ArraysLoops.pdb
+C:\Users\Nick\Documents\BIT 3444\04 - User Input Array\bin\Debug\ArraysLoops.xml
